@@ -3,6 +3,7 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { Button } from "@/components/ui/button"
 
 export default function Header() {
   const [email, setEmail] = useState<string | null>(null)
@@ -28,12 +29,12 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-gray-800 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div>{email}</div>
-        <button onClick={handleSignOut} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">
+    <header className="bg-background border-b">
+      <div className="container mx-auto flex justify-between items-center py-4">
+        <div className="text-foreground">{email}</div>
+        <Button onClick={handleSignOut} variant="destructive">
           Déconnexion
-        </button>
+        </Button>
       </div>
     </header>
   )
